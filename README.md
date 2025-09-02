@@ -42,36 +42,35 @@ It shows how you can:
 1. **Build the Docker image**
    ```bash
    docker build -t config-secret-demo .
+     
 
-1. **Build the Docker image**
+2. **Push the image to Docker Hub (or ECR/GCR)**
    ```bash
-   docker build -t config-secret-demo .  
-
-2. Push the image to Docker Hub (or ECR/GCR)
-
-docker tag config-secret-demo <your-dockerhub-username>/config-secret-demo
-docker push <your-dockerhub-username>/config-secret-demo
+   docker tag config-secret-demo <your-dockerhub-username>/config-secret-demo
+   docker push <your-dockerhub-username>/config-secret-demo
 
 
-3. Apply Kubernetes manifests
-
-kubectl apply -f k8s/ns.yaml
-kubectl apply -f k8s/configmap.yaml
-kubectl apply -f k8s/secret.yaml
-kubectl apply -f k8s/deployment.yaml
-kubectl apply -f k8s/service.yaml
-
-
-4. Check resources
-
-kubectl get all -n config-secret-demo
+3. **Apply Kubernetes manifests**
+   ```bash
+   kubectl apply -f k8s/ns.yaml
+   kubectl apply -f k8s/configmap.yaml
+   kubectl apply -f k8s/secret.yaml
+   kubectl apply -f k8s/deployment.yaml
+   kubectl apply -f k8s/service.yaml
 
 
-5. Access the app
+4. **Check resources**
+   ```bash
+   kubectl get all -n config-secret-demo
 
-If using Minikube → run minikube service demo-service -n config-secret-demo
 
-If using NodePort → access via <NodeIP>:<NodePort>
+5. **Access the app**
+   
+   If using Minikube → run
+   ```bash
+   minikube service demo-service -n config-secret-demo
+
+   If using NodePort → access via <NodeIP>:<NodePort>
 
 
 
